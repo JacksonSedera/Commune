@@ -1,0 +1,243 @@
+/* Variables pour le thème */
+:root {
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --danger-color: #e74c3c;
+  --text-primary: #2c3e50;
+  --text-secondary: #34495e;
+  --border-color: #ddd;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-container {
+  max-width: 420px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: none;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.commune-logo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.commune-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Formulaire */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+  transform: translateY(-1px);
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+/* Groupe mot de passe */
+.password-group {
+  position: relative;
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-container input {
+  padding-right: 3.5rem;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  background-color: #ecf0f1;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.password-toggle-icon:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.password-toggle-icon:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Bouton de connexion */
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.5px;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Message d'erreur */
+.error-message {
+  color: var(--danger-color);
+  background-color: #fdecea;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  border-left: 4px solid var(--danger-color);
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 1rem auto;
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+  
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .commune-logo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .form-group input {
+    padding: 0.8rem;
+  }
+}
+
+/* Animation de chargement */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Focus visible pour l'accessibilité */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
